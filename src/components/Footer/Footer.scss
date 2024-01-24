@@ -1,0 +1,21 @@
+@import '../../assets/styles/variables.scss';
+
+.footer {
+    background: $secondary-gradient-color;
+    border-top: solid 3px $primary-color;
+
+    .container-fluid {
+        display: grid;
+        justify-content: center;
+
+        .navbar-brand {
+            cursor: pointer;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}

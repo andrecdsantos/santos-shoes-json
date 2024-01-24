@@ -1,0 +1,49 @@
+@import '../../assets/styles/variables.scss';
+
+.carrossel {
+    background: $text-color;
+    text-align: center;
+
+    h2 {
+        color: $primary-color;
+        padding: 20px 0;
+    }
+    
+        .slick-slider {
+            margin: 20px 20px 0 20px;
+            padding: 20px;
+
+            @media (max-width: 770px) {
+                width: 500px;
+                margin-inline: auto;
+              }
+    
+              @media (max-width: 580px) {
+                width: 350px;
+                margin-inline: auto;
+              }
+    
+              .slick-arrow {
+                
+                
+                @media (max-width: 770px) {
+                    display: none !important;
+                }
+              }
+
+              .slick-prev::before, .slick-next::before {
+                font-size: 2rem;
+                color: $primary-color;
+              }
+    
+            img {
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+        
+                &:hover {
+                            transform: translateY(-5px);
+                }
+            }  
+        }
+}

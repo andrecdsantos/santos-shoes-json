@@ -1,0 +1,60 @@
+@import '../../assets/styles/variables.scss';
+
+.header {
+    background: $secondary-gradient-color;
+    border-bottom: solid 3px $primary-color;
+    display: flex;
+    flex-direction: column;
+
+    div {
+
+/* 
+        &> * {
+            flex: 1; 
+        }
+ */
+    
+        .menu-button {
+            
+            &:hover {
+                cursor: pointer;
+                color: $primary-color;
+            }
+
+            button {
+                background: $tertiary-color;
+                padding: .25rem .5rem;
+                border-radius: .25rem;
+                margin-right: 10px;
+            }
+            span {
+                font-size: 1.5rem;
+            }
+            
+        }
+    
+        .navbar-brand {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        .offcanvas{
+            background: $secondary-gradient-color;
+            .offcanvas-header{
+                background: $primary-color;
+            }
+
+            .nav-underline{
+                width: max-content;
+            }
+        }
+    
+    }
+}
