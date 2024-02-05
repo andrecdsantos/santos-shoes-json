@@ -17,9 +17,6 @@ const Comprar = () => {
     const buscaTenis = () => tenisData.find(tenis => tenis.id === param.id);
 
     return (   
-
-        <div className="page">
-            <Header/>
             <div className="container text-center">
                 <h2>{buscaTenis().name}</h2>
                 <div>
@@ -28,8 +25,6 @@ const Comprar = () => {
                 <p className="text-decoration-line-through">De: R${buscaTenis().oldPrice}</p>
                 <p className="fw-bold">Por: R${buscaTenis().price}</p>
             </div>
-            <Footer/>
-        </div>
     )
 }
 

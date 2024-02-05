@@ -1,6 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom"
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
 import { useEffect, useState } from "react";
 
 const Buscar = () => {
@@ -12,7 +10,7 @@ const Buscar = () => {
         .then(response => response.json()
         .then(setTenisData))
     }, [])
-    if(!tenisData || !tenisData.length) return null;
+    if(!tenisData?.length) return null; //if(!tenisData || !tenisData.length) 
 
     const filtraTenis = () => {
         if(param.termo === 'all') return tenisData;
@@ -26,8 +24,6 @@ const Buscar = () => {
     }
 
     return (
-        <div className="page">
-            <Header/>
             <div className="container text-center">
                 <h2>Buscar</h2>
                 <section className="d-flex flex-wrap justify-content-center">
@@ -37,15 +33,13 @@ const Buscar = () => {
                                     <img 
                                         src={tenis.image} 
                                         alt={tenis.name}
-                                        onClick={e=> navigateTo(`/comprar/${tenis.id}`)}
+                                        onClick={()=> navigateTo(`/comprar/${tenis.id}`)}
                                         />
                                 </div>
                             )
                     }
                 </section>
             </div>
-            <Footer/>
-        </div>
     )
 }
 
