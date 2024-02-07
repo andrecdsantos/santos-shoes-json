@@ -16,6 +16,18 @@
             &:hover {
                 color: $primary-color;
             }
+
+            &.darkMode {
+                color: white;
+                &:hover {
+                    color: $tertiary-color;
+                }
+            }
         }
+    }
+
+    &.darkMode {
+        background: black;
+        color: white;
     }
 }

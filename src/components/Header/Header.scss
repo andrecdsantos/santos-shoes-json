@@ -6,19 +6,21 @@
     display: flex;
     flex-direction: column;
 
-    div {
-
-/* 
-        &> * {
-            flex: 1; 
+        &.darkMode {
+            background: black;
+            color: white;
         }
- */
+
     
         .menu-button {
-            
+             
             &:hover {
-                cursor: pointer;
                 color: $primary-color;
+                &.darkMode {
+                    &:hover {
+                        color: $tertiary-color; // Cor do texto quando estiver em darkMode
+                    }
+                }
             }
 
             button {
@@ -39,9 +41,17 @@
             align-items: center;
             font-size: 30px;
             cursor: pointer;
+
+            &.darkMode {
+                    color: white;
+                
+            }
             
             &:hover {
                 color: $primary-color;
+                &.darkMode {
+                    color: $tertiary-color;       
+                }
             }
         }
 
@@ -55,6 +65,16 @@
                 width: max-content;
             }
         }
+
+        .darkMode-button {
+            color: black;
+            cursor: pointer;
+            font-size: 1.5rem;
+
+            &.darkMode {
+                color: white;
+            
+            }
+        }
     
-    }
 }
