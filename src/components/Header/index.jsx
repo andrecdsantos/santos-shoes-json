@@ -15,9 +15,9 @@ const Header = () => {
         }
     }
 
-    const handleNavLinkClick = (rota) => {
-        navigateTo(rota);
-        window.location.reload(true); // Força a recarga da página quando um link de navegação é clicado
+    const handleSearchButtonClick = (e) => {
+        e.preventDefault();//evita que a pagina seja recarregada e o formulario seja enviado
+        navigateTo(`buscar/${!textSearch? 'all' : textSearch}`);
     }
 
     return (
@@ -58,13 +58,13 @@ const Header = () => {
                     <div className="offcanvas-body">
                         <ul className='navbar-nav nav-underline'>
                             <li>
-                                <Link className={`nav-link ${window.location.pathname === '/' ? 'active' : ''}`} onClick={() => handleNavLinkClick("/")}>HOME</Link>
+                                <Link className={`nav-link ${window.location.pathname === '/' ? 'active' : ''}`} to='/'>HOME</Link>
                             </li>
                             <li>
-                                <Link className={`nav-link ${window.location.pathname.includes('/comprar') ? 'active' : ''}`} onClick={() => handleNavLinkClick("/comprar/95004531")}>COMPRAR</Link>
+                                <Link className={`nav-link ${window.location.pathname.includes('comprar') ? 'active' : ''}`} to="comprar/95004531">COMPRAR</Link>
                             </li>
                             <li>
-                                <Link className={`nav-link ${window.location.pathname.includes('/buscar') ? 'active' : ''}`} onClick={() => handleNavLinkClick("/buscar/all")}>BUSCAR</Link>
+                                <Link className={`nav-link ${window.location.pathname.includes('buscar') ? 'active' : ''}`} to="buscar/all">BUSCAR</Link>
                             </li>
                         </ul>
                     </div>
@@ -78,7 +78,7 @@ const Header = () => {
                         onChange={e=> setTextSearch(e.target.value)}
                         onKeyDown={handleKeyPressed}
                         />
-                    <button className="btn btn-dark" onClick={e => navigateTo(`/buscar/${!textSearch? 'all' : textSearch}`)}>
+                    <button className={`btn ${theme? 'btn-light' : 'btn-dark'}`} onClick={(e)=> handleSearchButtonClick(e)}>
                             <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
