@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useThemeContext from '../../hooks/useThemeContext';
 
 const Header = () => {
@@ -19,6 +19,29 @@ const Header = () => {
         e.preventDefault();//evita que a pagina seja recarregada e o formulario seja enviado
         navigateTo(`buscar/${!textSearch? 'all' : textSearch}`);
     }
+
+    //fecha o offcanas quando eu clicar em um Link
+    useEffect(() => { //useEffect adiciona e remove manipuladores de eventos de clique nos links, é acionado apos o render ser realizado
+        const handleMenuLinkClick = () => {
+            const offcanvas = document.getElementById('mainMenu');
+            const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
+            if (offcanvasInstance) {
+                offcanvasInstance.hide(); // Fecha o offcanvas se existir uma instância
+            }
+        };
+
+        const links = document.querySelectorAll('#mainMenu a.nav-link');// seleciona todos os elementos nav-link dentro do menu
+        links.forEach(link => {
+            link.addEventListener('click', handleMenuLinkClick);//quando qlqh nav-link for clicado chama a func handleMenuLinkClick
+        });
+
+        return () => { //return do useEffect é acionado quando o componente é desmontado
+            // Remova os manipuladores de eventos quando o componente é desmontado. "componente desmontado" se refere a quando um componente é removido do DOM. Isso geralmente ocorre quando o componente não é mais necessário na interface do usuário, seja porque ele foi substituído por outro componente, removido da árvore de elementos, ou quando a aplicação é completamente fechada ou recarregada.
+            links.forEach(link => {
+                link.removeEventListener('click', handleMenuLinkClick);
+            });
+        };
+    }, []); // Executa uma vez na montagem do componente
 
     return (
         <nav className={`header navbar sticky-top ${theme}`}>
