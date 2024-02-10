@@ -1,16 +1,21 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { data } from "../../data/data";
 
 const Buscar = () => {
     const param = useParams();
     const navigateTo = useNavigate();
-    const [tenisData, setTenisData] = useState();
+    const [tenisData, setTenisData] = useState(data);
+
+/* 
     useEffect(() => {
-        fetch('http://localhost:8080/src/json/shoes.json')
+        fetch('http://localhost:5173/src/json/shoes.json')
         .then(response => response.json()
         .then(setTenisData))
     }, [])
-    if(!tenisData?.length) return null; //if(!tenisData || !tenisData.length) 
+    if(!tenisData?.length) return null;  if(!tenisData || !tenisData.length) 
+ */
+
 
     const filtraTenis = () => {
         if(param.termo === 'all') return tenisData;

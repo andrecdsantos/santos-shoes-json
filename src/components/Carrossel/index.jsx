@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Carrossel.scss";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
+import { data } from "../../data/data";
 
 
 const Carrossel = () => {
-    const [tenisData, setTenisData] = useState();
+    const [tenisData, setTenisData] = useState(data);
     const navigateTo = useNavigate();
     const marcas = [
         'Nike',
@@ -50,14 +51,15 @@ const Carrossel = () => {
             },
         ],
     };
-
+/* 
     useEffect(() => {
-        fetch('http://localhost:8080/src/json/shoes.json')
+        fetch('http://localhost:5173/src/json/shoes.json')
         .then(response => response.json())
         .then(setTenisData);
     }, []);
 
-    if (!tenisData) return null;
+    if (!tenisData?.length) return null;
+     */
 
     const filterMarca = marca => tenisData.filter(tenis => tenis.name.toUpperCase().includes(marca.toUpperCase()))
 
@@ -77,7 +79,7 @@ const Carrossel = () => {
                                                 alt={modelo.name} 
                                                 className="img-fluid" 
                                                 key={modelo.id}
-                                                onClick={e=> navigateTo(`comprar/${modelo.id}`)}
+                                                onClick={()=> navigateTo(`comprar/${modelo.id}`)}
                                             />
                                     )
                                 }

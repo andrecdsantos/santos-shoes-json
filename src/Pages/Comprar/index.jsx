@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { data } from "../../data/data";
 
 const Comprar = () => {
-    const [tenisData, setTenisData] = useState();
+    const [tenisData, setTenisData] = useState(data);
     const param = useParams();
+
+/* 
     useEffect(() => {
-      fetch('http://localhost:8080/src/json/shoes.json')
+      fetch('http://localhost:5173/src/json/shoes.json')
       .then(response => response.json()
       .then(setTenisData))
     }, [])
     if(!tenisData || !tenisData.length) return null;
+ */
+
     
     const buscaTenis = () => tenisData.find(tenis => tenis.id === param.id);
 
