@@ -3,16 +3,18 @@ import "./Carrossel.scss";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { data } from "../../data/data";
+import ScrollTopButton from "../ScrollTopButton/ScrollTopButton";
 
+
+export const marcas = [
+    'Nike',
+    'Asics',
+    'adidas',
+]
 
 const Carrossel = () => {
     const [tenisData, setTenisData] = useState(data);
     const navigateTo = useNavigate();
-    const marcas = [
-        'Nike',
-        'Asics',
-        'adidas',
-    ]
     const settings = {
         dots: false,
         infinite: true,
@@ -66,6 +68,7 @@ const Carrossel = () => {
     return (
         <div className="carrossel">
             <div className="container">
+            <ScrollTopButton/>
                 <h2>Compre agora mesmo</h2>
                     {
                         marcas.map((marca, index) => (

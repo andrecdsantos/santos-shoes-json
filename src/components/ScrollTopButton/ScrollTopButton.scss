@@ -1,0 +1,16 @@
+@import '../../assets/styles/variables.scss';
+
+.scrollTopButton {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    background: $secondary-color;
+    z-index: 999;
+    border-radius: 50%;
+
+    &:hover {
+        background: $primary-color;
+    }
+}

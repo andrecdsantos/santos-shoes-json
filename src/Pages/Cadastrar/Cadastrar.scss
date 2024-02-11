@@ -1,0 +1,25 @@
+@import '../../assets/styles/variables.scss';
+
+.cadastrar {
+    background: $text-color;
+    text-align: center;
+
+    .btn-cadastrar {
+        background-color: $tertiary-color;
+        padding: .5rem 2rem;
+        border-radius: 10px;
+        font-size: 1.25rem;
+        transition: padding .3s ease-in-out, color .3s ease-in-out;
+
+        &:hover {
+            background-color: $primary-color;
+            color: white;
+            padding: .5rem 2.5rem;
+        }
+    }
+
+    .produtos-cadastrados {
+        background: $secondary-gradient-color;
+        box-shadow: 0 0 20px #00000070;
+    }
+}

@@ -89,6 +89,9 @@ const Header = () => {
                             <li>
                                 <Link className={`nav-link ${window.location.pathname.includes('buscar') ? 'active' : ''}`} to="buscar/all">BUSCAR</Link>
                             </li>
+                            <li>
+                                <Link className={`nav-link ${location.pathname === '/cadastrar' ? 'active' : ''}`} to={"/cadastrar"}>CADASTRAR</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
